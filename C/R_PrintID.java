@@ -1,13 +1,37 @@
-package concurrent_assignment1.C;
-/**
- * Modify class concurrent_assignment1.B.TPrintID so that it is created implementing Runnable 
- * (call the new class R_PrintID). 
- * And now the loop sleeps the thread a random time between 0 and 1.
- * 
- * @author yournamehere
- *
- */
+package C;
 
-public class R_PrintID {
+import B.*;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+public class R_PrintID extends Thread implements Runnable{
+    
+    int ID, n;
+    Random r = new Random();
+    
+    //CONSTRUCTOR
+    R_PrintID(int ID, int n){
+        this.ID = ID;
+        this.n = n;
+    }
+    
+    
+    
+    //METHOD
+    @Override
+    public void run(){
+        for (int i = 0; i < n; i++) {
+            try {
+                Thread.sleep(r.nextInt(1000));
+                System.out.println("I'm process: " + ID);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(R_PrintID.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+    }
+    
+    
+    
 }
