@@ -1,21 +1,39 @@
-package concurrent_assignment1.A;
+package A;
 
-/**
- * Get the reference of the main thread */
 
-public class Reference {
-  public static void main(String[] args){
-  int i=1, num=0;
-        while(i<=50){
+
+
+
+public class Exercise1 {
+    
+    public static void main(String[] args) {
+        Thread h = Thread.currentThread();
+        System.out.println(h.getName());
+        h.setName("OddThread");
+        System.out.println(h.getName());
+        Odd();
+    }
+    
+    
+    
+    public static void Odd(){
+        Thread h =  Thread.currentThread();
+        int i=1, num=0;
+        while(i <= 50){
             if(num%2 != 0){
-                System.out.println("Odd numer " + i + ": " + num + "\n");
+                System.out.println(num);
                 i++;
                 num++;
             }
+            
             else{
                 num++;
             }
         }
-    caca;
-}
+        
+    }
+    
+    
+    
+    
 }
